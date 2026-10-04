@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse product categories by hardware, paints, tools, electrical, plumbing and security supplies at Shasha Enterprises.">
+  <title>Categories | Shasha Enterprises</title>
+  <link rel="icon" type="image/png" href="assets/60E52ABA-7AD5-4435-8FFC-0AD6243C003D.PNG">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <input class="nav-toggle" type="checkbox" id="nav-toggle">
+    <div class="container header-main">
+      <a class="brand" href="index.html" aria-label="Shasha Enterprises home"><img src="assets/60E52ABA-7AD5-4435-8FFC-0AD6243C003D.PNG" alt="Shasha Enterprises logo"><span><strong>SHASHA&nbsp;ENTERPRISES</strong><small>Hardware • Paints • Power Tools • Electricals</small></span></a>
+      <form class="search" action="shop.html" method="get" role="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <label class="visually-hidden" for="category-search">Search products</label>
+        <input id="category-search" name="q" type="search" placeholder="Search for products...">
+      </form>
+      <div class="header-actions">
+        <a class="icon-link" href="shop.html#featured-products" aria-label="View products">♡<span>Wishlist</span></a>
+        <a class="icon-link" href="cart.html" aria-label="View shopping cart">⌑<span class="badge">0</span><span>Cart</span></a>
+        <a class="icon-link" href="contact.html" aria-label="Contact Shasha Enterprises">◯<span>Account</span></a>
+        <label class="menu-button" for="nav-toggle" aria-label="Toggle navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></label>
+      </div>
+    </div>
+    <div class="nav-row">
+      <nav class="container primary-nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a class="active" href="category.html">Categories</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a class="shop-now" href="shop.html">Shop Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="breadcrumb"><a href="index.html">Home</a> / Categories</p>
+        <h1>Browse by Category</h1>
+        <p>Discover the full range of building, plumbing, paint, tool, electrical and security essentials available from Shasha Enterprises.</p>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container">
+        <div class="category-grid">
+          <a class="category-card" href="shop.html#hardware">
+            <div class="category-image"><img src="assets/harware.png" alt="Hardware and fasteners selection"></div>
+            <div class="category-body">
+              <h3>Hardware &amp; Fasteners</h3>
+              <p>Bolts, screws, fixings, fittings and structural essentials.</p>
+              <span class="explore">Explore Products →</span>
+            </div>
+          </a>
+
+          <a class="category-card" href="shop.html#sanitary">
+            <div class="category-image"><img src="assets/pipe.PNG" alt="Sanitary ware and plumbing supplies"></div>
+            <div class="category-body">
+              <h3>Sanitary Wares &amp; Plumbing</h3>
+              <p>Fixtures, fittings, pipes and sanitary accessories for homes and projects.</p>
+              <span class="explore">Explore Products →</span>
+            </div>
+          </a>
+
+          <a class="category-card" href="shop.html#paints">
+            <div class="category-image"><img src="assets/paint.png" alt="Paints and coatings range"></div>
+            <div class="category-body">
+              <h3>Paints &amp; Coatings</h3>
+              <p>Interior and exterior paint systems with professional colour guidance.</p>
+              <span class="explore">Explore Products →</span>
+            </div>
+          </a>
+
+          <a class="category-card" href="shop.html#power-tools">
+            <div class="category-image"><img src="assets/power.png" alt="Power tools range"></div>
+            <div class="category-body">
+              <h3>Power Tools</h3>
+              <p>Reliable tools for repair, maintenance and project work.</p>
+              <span class="explore">Explore Products →</span>
+            </div>
+          </a>
+
+          <a class="category-card" href="shop.html#electrical">
+            <div class="category-image"><img src="assets/electrical.png" alt="Electrical supplies range"></div>
+            <div class="category-body">
+              <h3>Electrical Supplies</h3>
+              <p>Wiring, components and electrical essentials for daily and industrial use.</p>
+              <span class="explore">Explore Products →</span>
+            </div>
+          </a>
+
+          <a class="category-card" href="shop.html#security">
+            <div class="category-image"><img src="assets/lo.webp" alt="Hardware and security supplies"></div>
+            <div class="category-body">
+              <h3>Hardware &amp; Security</h3>
+              <p>Security hardware and dependable fittings for safe, secure spaces.</p>
+              <span class="explore">Explore Products →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-brand">SHASHA ENTERPRISES</div>
+        <p>Hardware, paints, power tools, electricals and essential project supplies for professionals and homes.</p>
+      </div>
+      <div>
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="category.html">Categories</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Categories</h2>
+        <ul>
+          <li><a href="shop.html#hardware">Hardware</a></li>
+          <li><a href="shop.html#sanitary">Sanitary</a></li>
+          <li><a href="shop.html#paints">Paints</a></li>
+          <li><a href="shop.html#power-tools">Power Tools</a></li>
+          <li><a href="shop.html#electrical">Electricals</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="tel:9042310035">9042310035</a></li>
+          <li>AIIMS Main Road</li>
+          <li>Madurai - 625 008</li>
+          <li>GST: 33AQXPM6971D1ZC</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container copyright">© 2026 Shasha Enterprises. All rights reserved.</div>
+  </footer>
+  <a class="whatsapp" href="https://wa.me/919042310035" target="_blank" rel="noopener noreferrer" aria-label="Chat with Shasha Enterprises on WhatsApp">W</a>
+</body>
+</html>

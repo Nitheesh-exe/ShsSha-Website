@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in to your Shasha Enterprises account.">
+  <title>Sign In | Shasha Enterprises</title>
+  <link rel="icon" type="image/png" href="assets/60E52ABA-7AD5-4435-8FFC-0AD6243C003D.PNG">
+  <link rel="stylesheet" href="style.css">
+  <script src="login.js" defer></script>
+</head>
+<body class="login-page">
+  <header class="login-header container">
+    <a class="brand" href="index.html" aria-label="Shasha Enterprises home">
+      <img src="assets/60E52ABA-7AD5-4435-8FFC-0AD6243C003D.PNG" alt="">
+      <span><strong>SHASHA&nbsp;ENTERPRISES</strong><small>Hardware • Paints • Power Tools • Electricals</small></span>
+    </a>
+    <a class="login-home" href="index.html">Back to store</a>
+  </header>
+  <main class="login-main container">
+    <section class="login-layout" aria-labelledby="login-title">
+      <div class="login-visual">
+        <img src="assets/IMG_6827.jpg" alt="Paint supplies at Shasha Enterprises">
+        <div class="login-visual-copy">
+          <span class="eyebrow">Shasha Enterprises · Madurai</span>
+          <h1 id="login-title">Good to have you here.</h1>
+          <p>Sign in to your customer account or register to get started.</p>
+        </div>
+      </div>
+      <div class="login-content">
+        <div class="login-heading">
+          <span class="eyebrow">Account access</span>
+          <h2>Customer account</h2>
+          <p>Sign in or create your account.</p>
+        </div>
+        <section class="login-card account-details" data-account-details aria-labelledby="account-details-title" hidden></section>
+        <div class="login-forms">
+          <section class="login-card login-customer-card" aria-labelledby="user-login-title">
+            <span class="login-label">CUSTOMER</span>
+            <h3 id="user-login-title">Your account</h3>
+            <div class="auth-switcher" aria-label="Customer account options">
+              <button class="is-active" type="button" data-auth-mode="login" aria-pressed="true">Sign in</button>
+              <button type="button" data-auth-mode="register" aria-pressed="false">Register</button>
+            </div>
+            <form data-login-form data-auth-panel="login">
+              <label class="form-field" for="user-email">Email address</label>
+              <input id="user-email" name="email" type="email" autocomplete="username" placeholder="you@example.com" required>
+              <label class="form-field" for="user-password">Password</label>
+              <input id="user-password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+              <button class="button button-primary button-block" type="submit">Sign in</button>
+              <p class="login-status" data-login-status role="status" aria-live="polite"></p>
+            </form>
+            <form data-login-form data-auth-panel="register" hidden>
+              <label class="form-field" for="register-name">Full name</label>
+              <input id="register-name" name="name" type="text" autocomplete="name" placeholder="Your full name" required>
+              <label class="form-field" for="register-email">Email address</label>
+              <input id="register-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              <label class="form-field" for="register-password">Password</label>
+              <input id="register-password" name="password" type="password" autocomplete="new-password" minlength="8" placeholder="At least 8 characters" required>
+              <label class="form-field" for="register-confirm-password">Confirm password</label>
+              <input id="register-confirm-password" name="confirmPassword" type="password" autocomplete="new-password" minlength="8" placeholder="Re-enter your password" required>
+              <button class="button button-primary button-block" type="submit">Create account</button>
+              <p class="login-status" data-login-status role="status" aria-live="polite"></p>
+            </form>
+            <div class="login-admin-action">
+              <p>Store administrator?</p>
+              <a class="button button-admin button-block" href="admin-login.html">Admin login</a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

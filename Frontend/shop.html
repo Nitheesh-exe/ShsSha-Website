@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse Shasha Enterprises hardware, plumbing, paint, power tool and electrical ranges.">
+  <title>Shop | Shasha Enterprises</title>
+  <link rel="icon" type="image/png" href="assets/60E52ABA-7AD5-4435-8FFC-0AD6243C003D.PNG">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <input class="nav-toggle" type="checkbox" id="nav-toggle">
+    <div class="container header-main">
+      <a class="brand" href="index.html"><img src="assets/60E52ABA-7AD5-4435-8FFC-0AD6243C003D.PNG" alt="Shasha Enterprises logo"><span><strong>SHASHA&nbsp;ENTERPRISES</strong><small>Hardware • Paints • Power Tools • Electricals</small></span></a>
+      <form class="search" action="shop.html" method="get" role="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><label class="visually-hidden" for="shop-search">Search products</label><input id="shop-search" name="q" type="search" placeholder="Search for products..."></form>
+      <div class="header-actions"><a class="icon-link" href="#featured-products" aria-label="View products">♡<span>Wishlist</span></a><a class="icon-link" href="cart.html" aria-label="View shopping cart">⌑<span class="badge">0</span><span>Cart</span></a><a class="icon-link" href="contact.html" aria-label="Contact Shasha Enterprises">◯<span>Account</span></a><label class="menu-button" for="nav-toggle" aria-label="Toggle navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></label></div>
+    </div>
+    <div class="nav-row"><nav class="container primary-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a class="active" href="shop.html">Shop</a><a href="category.html">Categories</a><a href="about.html">About Us</a><a href="contact.html">Contact</a><a class="shop-now" href="shop.html">Shop Now</a></nav></div>
+  </header>
+  <main>
+    <section class="page-hero"><div class="container"><p class="breadcrumb"><a href="index.html">Home</a> / Shop</p><h1>All Products</h1><p>Browse the existing Shasha Enterprises hardware, sanitary, paint, tool and electrical categories. Contact us to confirm the right product and price for your requirement.</p></div></section>
+    <section class="page-section"><div class="container shop-layout">
+      <aside class="filter-panel card" aria-label="Product filters">
+        <h2>Filter Products</h2>
+        <div class="filter-group"><h3>Categories</h3><label><input type="checkbox" data-filter-category="hardware"> Hardware &amp; Fasteners</label><label><input type="checkbox" data-filter-category="sanitary"> Sanitary &amp; Plumbing</label><label><input type="checkbox" data-filter-category="paints"> Paints &amp; Coatings</label><label><input type="checkbox" data-filter-category="power-tools"> Power Tools</label><label><input type="checkbox" data-filter-category="electrical"> Electrical Supplies</label><label><input type="checkbox" data-filter-category="security"> Hardware &amp; Security</label></div>
+        <div class="filter-group"><h3>Brand</h3><label><input type="checkbox" data-filter-brand="asian-paints"> Asian Paints</label><label><input type="checkbox" data-filter-brand="berger"> Berger</label><label><input type="checkbox" data-filter-brand="bosch"> Bosch</label><label><input type="checkbox" data-filter-brand="stanley"> Stanley</label><label><input type="checkbox" data-filter-brand="dewalt"> DeWalt</label><label><input type="checkbox" data-filter-brand="black-decker"> Black &amp; Decker</label><label><input type="checkbox" data-filter-brand="parryware"> Parryware</label></div>
+        <div class="filter-group"><h3>Price</h3><select aria-label="Filter by price"><option value="">All prices</option><option value="under-500">Under ₹500</option><option value="500-1999">₹500–₹1,999</option><option value="2000-plus">₹2,000 and above</option></select></div>
+      </aside>
+      <div>
+        <div class="catalogue-head"><div><span class="eyebrow">Shasha catalogue</span><h2>Product categories</h2><p>6 product groups available for enquiry.</p></div><select class="sort-select" aria-label="Sort products"><option>Sort: Recommended</option><option>Category: A-Z</option></select></div>
+        <div class="product-grid shop-products" id="featured-products">
+          <article class="product-card" id="hardware"><button class="wish" type="button" aria-label="Add Hardware and Fasteners to wishlist">♡</button><div class="product-image"><img src="assets/harware.png" alt="Hardware and fasteners selection"></div><span class="product-label">Hardware</span><h3>Hardware &amp; Fasteners</h3><p class="price">Price on Request</p><a class="button button-primary" href="product.html?item=hardware">View Details</a></article>
+          <article class="product-card" id="sanitary"><button class="wish" type="button" aria-label="Add Plumbing supplies to wishlist">♡</button><div class="product-image"><img src="assets/pipe.PNG" alt="Sanitary ware and plumbing supplies"></div><span class="product-label">Plumbing</span><h3>Sanitary Wares &amp; Plumbing</h3><p class="price">Price on Request</p><a class="button button-primary" href="product.html?item=sanitary">View Details</a></article>
+          <article class="product-card" id="paints"><button class="wish" type="button" aria-label="Add Paints and Coatings to wishlist">♡</button><div class="product-image"><img src="assets/paint.png" alt="Paints and coatings range"></div><span class="product-label">Paints</span><h3>Paints &amp; Coatings</h3><p class="price">Contact for Price</p><a class="button button-primary" href="product.html?item=paints">View Details</a></article>
+          <article class="product-card" id="power-tools"><button class="wish" type="button" aria-label="Add Power Tools to wishlist">♡</button><div class="product-image"><img src="assets/power.png" alt="Power tools range"></div><span class="product-label">Tools</span><h3>Power Tools</h3><p class="price">Price on Request</p><a class="button button-primary" href="product.html?item=power-tools">View Details</a></article>
+          <article class="product-card" id="electrical"><button class="wish" type="button" aria-label="Add Electrical Supplies to wishlist">♡</button><div class="product-image"><img src="assets/electrical.png" alt="Electrical supplies range"></div><span class="product-label">Electrical</span><h3>Electrical Supplies</h3><p class="price">Contact for Price</p><a class="button button-primary" href="product.html?item=electrical">View Details</a></article>
+          <article class="product-card" id="security"><button class="wish" type="button" aria-label="Add Hardware and Security to wishlist">♡</button><div class="product-image"><img src="assets/lo.webp" alt="Hardware and security supplies"></div><span class="product-label">Security</span><h3>Hardware &amp; Security</h3><p class="price">Price on Request</p><a class="button button-primary" href="product.html?item=security">View Details</a></article>
+        </div>
+        <p class="no-results" data-no-results hidden>No product groups match these filters. Try changing your search or filters.</p>
+      </div>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-grid"><div><div class="footer-brand">SHASHA ENTERPRISES</div><p>Hardware, paints, power tools, electricals and essential project supplies for professionals and homes.</p></div><div><h2>Quick Links</h2><ul><li><a href="index.html">Home</a></li><li><a href="shop.html">Shop</a></li><li><a href="index.html#categories">Categories</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div><div><h2>Categories</h2><ul><li><a href="#hardware">Hardware</a></li><li><a href="#sanitary">Sanitary</a></li><li><a href="#paints">Paints</a></li><li><a href="#power-tools">Power Tools</a></li><li><a href="#electrical">Electricals</a></li></ul></div><div><h2>Contact</h2><ul><li><a href="tel:9042310035">9042310035</a></li><li>AIIMS Main Road</li><li>Madurai - 625 008</li><li>GST: 33AQXPM6971D1ZC</li></ul></div></div><div class="container copyright">© 2026 Shasha Enterprises. All rights reserved.</div></footer>
+  <a class="whatsapp" href="https://wa.me/919042310035" target="_blank" rel="noopener noreferrer" aria-label="Chat with Shasha Enterprises on WhatsApp">W</a>
+</body>
+</html>

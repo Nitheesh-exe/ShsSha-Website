@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="Shasha Enterprises cart.">
+    <title>My Cart | Shasha Enterprises</title>
+    <link rel="icon" type="image/png" href="assets/60E52ABA-7AD5-4435-8FFC-0AD6243C003D.PNG">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header"><input class="nav-toggle" type="checkbox" id="nav-toggle">
+        <div class="container header-main"><a class="brand" href="index.html"><img
+                    src="assets/60E52ABA-7AD5-4435-8FFC-0AD6243C003D.PNG"
+                    alt="Shasha Enterprises logo"><span><strong>SHASHA&nbsp;ENTERPRISES</strong><small>Hardware • Paints •
+                        Power Tools • Electricals</small></span></a>
+            <form class="search" action="shop.html" method="get"><label class="visually-hidden" for="cart-search">Search
+                    products</label><input id="cart-search" name="q" type="search" placeholder="Search for products...">
+            </form>
+            <div class="header-actions"><a class="icon-link" href="shop.html#featured-products"
+                    aria-label="View products">♡<span>Wishlist</span></a><a class="icon-link" href="cart.html"
+                    aria-label="View shopping cart">⌑<span class="badge">2</span><span>Cart</span></a><a
+                    class="icon-link" href="contact.html"
+                    aria-label="Contact Shasha Enterprises">◯<span>Account</span></a><label class="menu-button"
+                    for="nav-toggle" aria-label="Toggle navigation">☰</label></div>
+        </div>
+        <div class="nav-row">
+            <nav class="container primary-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a
+                    href="shop.html">Shop</a><a href="index.html#categories">Categories</a><a href="about.html">About
+                    Us</a><a href="contact.html">Contact</a><a class="shop-now" href="shop.html">Shop Now</a></nav>
+        </div>
+    </header>
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <p class="breadcrumb"><a href="index.html">Home</a> / My Cart</p>
+                <h1>My Cart</h1>
+                <p>Your selected Shasha Enterprises product categories. Final availability and pricing are confirmed by
+                    the store team.</p>
+            </div>
+        </section>
+        <section class="page-section">
+            <div class="container cart-layout">
+                <section class="cart-list card" aria-label="Cart products">
+                    <article class="cart-row">
+                        <div class="cart-thumb"><img src="assets/power.png" alt="Power tools range"></div>
+                        <div>
+                            <h2>Power Tool Range</h2>
+                            <p>Power Tools</p>
+                            <div class="cart-controls">
+                                <div class="quantity" aria-label="Quantity selector"><button type="button"
+                                        aria-label="Decrease power tools quantity">−</button><output>1</output><button
+                                        type="button" aria-label="Increase power tools quantity">+</button></div><a
+                                    class="remove-link" href="cart.html">Remove</a>
+                            </div>
+                        </div>
+                        <p class="cart-price">Price on Request</p>
+                    </article>
+                    <article class="cart-row">
+                        <div class="cart-thumb"><img src="assets/pipe.PNG" alt="Sanitary ware and plumbing supplies">
+                        </div>
+                        <div>
+                            <h2>Sanitary Wares &amp; Plumbing</h2>
+                            <p>Plumbing</p>
+                            <div class="cart-controls">
+                                <div class="quantity" aria-label="Quantity selector"><button type="button"
+                                        aria-label="Decrease plumbing quantity">−</button><output>1</output><button
+                                        type="button" aria-label="Increase plumbing quantity">+</button></div><a
+                                    class="remove-link" href="cart.html">Remove</a>
+                            </div>
+                        </div>
+                        <p class="cart-price">Price on Request</p>
+                    </article>
+                </section>
+                <aside class="summary-card card">
+                    <h2>Order Summary</h2>
+                    <div class="summary-lines">
+                        <div><span>Products</span><span>2 items</span></div>
+                        <div><span>Subtotal</span><span>Price on Request</span></div>
+                        <div><span>Delivery</span><span>Confirmed at enquiry</span></div>
+                        <div class="summary-total"><span>Total</span><span>Price on Request</span></div>
+                    </div><a class="button button-primary button-block" href="#" id="cart-checkout-btn">Proceed to
+                        Checkout</a>
+
+                    <script>
+                        document.getElementById('cart-checkout-btn').addEventListener('click', function (e) {
+                            e.preventDefault();
+                            const authToken = localStorage.getItem('authToken');
+
+                            if (authToken) {
+                                // User is logged in, send them to checkout
+                                window.location.href = 'checkout.html';
+                            } else {
+                                // User is not logged in, redirect to login page
+                                alert("You must log in to proceed to checkout.");
+                                window.location.href = 'login.html';
+                            }
+                        });
+                    </script>
+                    class="button button-outline button-block" href="shop.html">Continue Shopping</a>
+                    <p class="cart-note">This local catalogue does not calculate pricing. Contact Shasha Enterprises to
+                        receive a final quote.</p>
+                </aside>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <div class="footer-brand">SHASHA ENTERPRISES</div>
+                <p>Hardware, paints, power tools, electricals and essential project supplies for professionals and
+                    homes.</p>
+            </div>
+            <div>
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="index.html#categories">Categories</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h2>Categories</h2>
+                <ul>
+                    <li><a href="shop.html#hardware">Hardware</a></li>
+                    <li><a href="shop.html#sanitary">Sanitary</a></li>
+                    <li><a href="shop.html#paints">Paints</a></li>
+                    <li><a href="shop.html#power-tools">Power Tools</a></li>
+                    <li><a href="shop.html#electrical">Electricals</a></li>
+                </ul>
+            </div>
+            <div>
+                <h2>Contact</h2>
+                <ul>
+                    <li><a href="tel:9042310035">9042310035</a></li>
+                    <li>AIIMS Main Road</li>
+                    <li>Madurai - 625 008</li>
+                    <li>GST: 33AQXPM6971D1ZC</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright">© 2026 Shasha Enterprises. All rights reserved.</div>
+    </footer>
+</body>
+
+</html>

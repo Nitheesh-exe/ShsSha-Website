@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Shasha Enterprises</title>
+  <link rel="icon" type="image/png" href="assets/60E52ABA-7AD5-4435-8FFC-0AD6243C003D.PNG">
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Reddish Theme Override -->
+  <style>
+    :root {
+      /* Overriding the default theme variables to be reddish */
+      --primary: #9b2226; /* Deep Red */
+      --primary-hover: #781a1d;
+      --brand-color: #9b2226;
+      --accent: #ca6702;
+      --bg-surface: #fff0f0; /* Very light red tint for cards */
+    }
+    .admin-dashboard .dashboard-header {
+      background-color: #3b090a; /* Dark maroon header */
+    }
+    .admin-dashboard .dashboard-brand span, 
+    .admin-dashboard .dashboard-nav a,
+    .admin-dashboard .dashboard-exit {
+      color: #ffffff !important;
+    }
+    .admin-dashboard .dashboard-nav a.is-current {
+      border-bottom: 2px solid #ff9f1c;
+    }
+    .admin-dashboard { background: #f6f1f0; }
+    .admin-dashboard .dashboard-main { width: min(1360px, calc(100% - 48px)); padding-top: 30px; }
+    .admin-dashboard .dashboard-titlebar { align-items: center; margin-bottom: 22px; padding: 22px 26px; border: 1px solid #ead8d5; border-left: 4px solid var(--primary); border-radius: 8px; background: #fff; box-shadow: 0 6px 18px rgba(59, 9, 10, .05); }
+    .admin-dashboard .dashboard-metrics { overflow: hidden; border-color: #ead8d5; border-radius: 8px; box-shadow: 0 6px 18px rgba(59, 9, 10, .05); }
+    .metric-item { border-top: 4px solid var(--primary); background: #fff; }
+    .metric-item:nth-child(2) { border-top-color: #ca6702; }
+    .metric-item:nth-child(3) { border-top-color: #2a7f78; }
+    .order-summary-cell { font-size: 0.85em; color: #555; max-width: 300px; }
+    .admin-dashboard .dashboard-metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    @media (max-width: 900px) {
+      .admin-dashboard .dashboard-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      .admin-dashboard .dashboard-metrics { grid-template-columns: 1fr; }
+    }
+    .order-breakdown { margin-top: 24px; padding: 22px 24px; border: 1px solid #ead8d5; border-radius: 8px; background: #fff; box-shadow: 0 6px 18px rgba(59, 9, 10, .05); }
+    .order-breakdown .dashboard-section-heading { align-items: center; margin-bottom: 12px; }
+    .order-breakdown-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px 14px; }
+    .order-breakdown-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-width: 0; padding: 12px 14px; border: 1px solid #eee3e0; border-radius: 6px; background: #fffdfc; }
+    .order-breakdown-item span { overflow-wrap: anywhere; color: #443b38; font-size: .82rem; font-weight: 700; }
+    .order-breakdown-item strong { flex: 0 0 auto; padding: 4px 9px; border-radius: 999px; background: #e8f2eb; color: #28633b; font-size: .72rem; white-space: nowrap; }
+    .order-breakdown-item.is-unordered { background: #fbf8f4; }
+    .order-breakdown-item.is-unordered strong { background: #f3e8df; color: #775844; }
+    .enquiries-section { margin-top: 30px; padding-top: 24px; border-top: 1px solid #e4d5d2; }
+    .enquiry-table-wrap { border-color: #ead8d5; border-radius: 8px; box-shadow: 0 6px 18px rgba(59, 9, 10, .05); }
+    .enquiry-table th { background: #3b090a; color: #fff; }
+    .enquiry-table tbody tr:nth-child(even) { background: #fcf8f7; }
+    .dashboard-order-search { min-width: 220px; min-height: 42px; padding: 9px 12px; border: 1px solid #ddc9c5; border-radius: 5px; background: #fff; color: #282321; }
+    @media (max-width: 900px) {
+      .order-breakdown-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      .order-breakdown-list { grid-template-columns: 1fr; }
+      .admin-dashboard .dashboard-main { width: calc(100% - 32px); }
+      .admin-dashboard .dashboard-titlebar,.order-breakdown { padding: 18px; }
+      .dashboard-order-search { width: 100%; }
+    }
+  </style>
+</head>
+<body class="admin-dashboard">
+  <header class="dashboard-header">
+    <a class="dashboard-brand" href="index.html">
+      <img src="assets/60E52ABA-7AD5-4435-8FFC-0AD6243C003D.PNG" alt="">
+      <span><strong>SHASHA ENTERPRISES</strong><small>ADMIN WORKSPACE</small></span>
+    </a>
+    <nav class="dashboard-nav" aria-label="Admin navigation">
+      <a class="is-current" href="#overview">Order Management</a>
+    </nav>
+    <a class="dashboard-exit" href="#" id="logout-btn">Sign Out</a>
+  </header>
+
+  <main class="dashboard-main" id="overview">
+    <div class="dashboard-titlebar">
+      <div>
+        <span class="eyebrow" style="color: var(--primary);">Live Database Workspace</span>
+        <h1>Order Dashboard</h1>
+        <p>Review customer orders, shipping details, and revenue directly from the PostgreSQL database.</p>
+      </div>
+      <div class="dashboard-top-summary">
+        <div class="dashboard-actions">
+        <!-- ADDED: Search Bar and CSV Export Button -->
+        <input class="dashboard-order-search" type="search" id="search-orders" placeholder="Search customer, city, or ID...">
+        <button class="button button-outline" type="button" id="export-csv-btn">Export CSV</button>
+        <button class="button button-primary" type="button" onclick="window.location.reload()">Refresh Data</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overview Metrics -->
+    <section class="dashboard-metrics" aria-label="Order summary">
+      <article class="metric-item">
+        <span>Total Orders</span>
+        <strong id="metric-total-orders">0</strong>
+        <small>In database</small>
+      </article>
+      <article class="metric-item">
+        <span>Total Items</span>
+        <strong id="metric-total-items">0</strong>
+        <small>Units across all orders</small>
+      </article>
+      <article class="metric-item">
+        <span>Total Revenue</span>
+        <strong id="metric-revenue">₹0</strong>
+        <small>Calculated total</small>
+      </article>
+    </section>
+
+    <section class="order-breakdown" aria-labelledby="order-breakdown-title">
+      <div class="dashboard-section-heading">
+        <div>
+          <span class="eyebrow" style="color: var(--primary);">Catalogue breakdown</span>
+          <h2 id="order-breakdown-title">Items by Order Status</h2>
+        </div>
+        <span>Across all orders</span>
+      </div>
+      <div class="order-breakdown-list" id="order-items-breakdown">
+        <p class="dashboard-muted">Loading item counts...</p>
+      </div>
+    </section>
+
+    <!-- Orders Table -->
+    <section class="enquiries-section">
+      <div class="enquiry-table-wrap">
+        <table class="enquiry-table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Customer Info</th>
+              <th scope="col">Contact</th>
+              <th scope="col">Shipping Location</th>
+              <th scope="col">Order Summary</th>
+              <th scope="col">Grand Total</th>
+            </tr>
+          </thead>
+          <tbody id="orders-table-body">
+            <tr><td colspan="6" style="text-align: center;">Loading orders from database...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const adminToken = localStorage.getItem('adminAuthToken');
+    if (!adminToken) {
+        alert("Unauthorized access. Please log in as an administrator.");
+        window.location.href = 'admin-login.html';
+    }
+
+    document.getElementById('logout-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        localStorage.removeItem('adminAuthToken');
+        window.location.href = 'admin-login.html';
+    });
+
+    let globalOrders = []; // Store orders globally for search filtering
+
+    // Fetch Orders
+    fetch('http://localhost:8080/api/orders', {
+        method: 'GET',
+        headers: { 'Authorization': adminToken }
+    })
+    .then(res => {
+        if (res.ok) return res.json();
+        throw new Error("Failed to fetch orders.");
+    })
+    .then(orders => {
+        globalOrders = orders;
+        renderTable(globalOrders);
+        calculateMetrics(globalOrders);
+      renderItemBreakdown(globalOrders);
+    })
+    .catch(error => {
+        document.getElementById('orders-table-body').innerHTML = 
+            "<tr><td colspan='6' style='text-align: center; color: red;'>Error connecting to backend database.</td></tr>";
+    });
+
+    // --- FEATURE: Dynamic Table Rendering ---
+    function renderTable(data) {
+        const tableBody = document.getElementById('orders-table-body');
+        tableBody.innerHTML = ""; 
+
+        if (data.length === 0) {
+            tableBody.innerHTML = "<tr><td colspan='6' style='text-align: center;'>No orders found.</td></tr>";
+            return;
+        }
+
+        data.forEach(order => {
+            let formattedSummary = order.orderSummary ? order.orderSummary.replace(/\|/g, '<br>') : 'No details';
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>#${order.id}</td>
+                <td><strong>${order.fullName}</strong><br><small>${order.email}</small></td>
+                <td>${order.phone}</td>
+                <td>${order.address}<br>${order.city}, ${order.state} - ${order.pincode}</td>
+                <td class="order-summary-cell" style="font-size: 0.85em; max-width: 300px;">${formattedSummary}</td>
+                <td><strong>${order.grandTotal || 'N/A'}</strong></td>
+            `;
+            tableBody.appendChild(row);
+        });
+    }
+
+    // --- FEATURE: Calculate Revenue ---
+    function calculateMetrics(data) {
+        document.getElementById('metric-total-orders').textContent = data.length;
+        
+        let totalRevenue = 0;
+      let totalItems = 0;
+        data.forEach(order => {
+        const quantities = order.orderSummary?.matchAll(/\bQty\s+(\d+)\b/gi) || [];
+        for (const quantity of quantities) totalItems += Number(quantity[1]);
+
+            if (order.grandTotal) {
+                // Strips out the ₹ symbol and commas to do math (e.g., "₹16,600" -> 16600)
+                let numericValue = parseInt(order.grandTotal.replace(/[^0-9]/g, ''), 10);
+                if (!isNaN(numericValue)) totalRevenue += numericValue;
+            }
+        });
+        
+        // Format back to Indian Rupee standard
+        document.getElementById('metric-revenue').textContent = '₹' + totalRevenue.toLocaleString('en-IN');
+        document.getElementById('metric-total-items').textContent = totalItems.toLocaleString('en-IN');
+    }
+
+      function renderItemBreakdown(data) {
+        const catalogItems = [
+          "Hardware & Fasteners",
+          "Sanitary Wares & Plumbing",
+          "Paints & Coatings",
+          "Power Tools",
+          "Electrical Supplies",
+          "Hardware & Security"
+        ];
+        const aliases = new Map([
+          ["power tool range", "Power Tools"],
+          ["sanitary & plumbing", "Sanitary Wares & Plumbing"]
+        ]);
+        const knownNames = new Map(catalogItems.map(itemName => [itemName.toLowerCase(), itemName]));
+        const breakdown = new Map(catalogItems.map(itemName => [itemName, 0]));
+        data.forEach(order => {
+          if (typeof order.orderSummary !== 'string') return;
+          order.orderSummary.split('|').forEach(entry => {
+            const match = entry.trim().match(/^(.+?)\s*\(\s*Qty\s+(\d+)\b/i);
+            if (!match) return;
+            const summaryName = match[1].trim();
+            const itemName = aliases.get(summaryName.toLowerCase()) || knownNames.get(summaryName.toLowerCase()) || summaryName;
+            breakdown.set(itemName, (breakdown.get(itemName) || 0) + Number(match[2]));
+          });
+        });
+
+        const container = document.getElementById('order-items-breakdown');
+        container.replaceChildren();
+        [...breakdown.entries()]
+          .sort((first, second) => (first[1] === 0) - (second[1] === 0) || second[1] - first[1] || first[0].localeCompare(second[0]))
+          .forEach(([itemName, quantity]) => {
+            const row = document.createElement('div');
+            row.className = `order-breakdown-item${quantity === 0 ? ' is-unordered' : ''}`;
+            const name = document.createElement('span');
+            name.textContent = itemName;
+            const count = document.createElement('strong');
+            count.textContent = quantity === 0 ? 'Not ordered' : `${quantity.toLocaleString('en-IN')} ${quantity === 1 ? 'unit' : 'units'}`;
+            row.append(name, count);
+            container.appendChild(row);
+          });
+      }
+
+    // --- FEATURE: Real-time Search ---
+    document.getElementById('search-orders').addEventListener('input', function(e) {
+        const term = e.target.value.toLowerCase();
+        const filtered = globalOrders.filter(order => 
+            order.fullName.toLowerCase().includes(term) ||
+            order.city.toLowerCase().includes(term) ||
+            order.email.toLowerCase().includes(term) ||
+            order.id.toString().includes(term)
+        );
+        renderTable(filtered);
+    });
+
+    // --- FEATURE: Export to CSV ---
+    document.getElementById('export-csv-btn').addEventListener('click', function() {
+        if (globalOrders.length === 0) return alert("No data to export.");
+        
+        // Create CSV Headers
+        let csvContent = "data:text/csv;charset=utf-8,ID,Customer Name,Email,Phone,City,Total\n";
+        
+        // Add Rows
+        globalOrders.forEach(order => {
+            // Remove commas from strings to prevent breaking the CSV format
+            let safeName = order.fullName ? order.fullName.replace(/,/g, '') : '';
+            let safeCity = order.city ? order.city.replace(/,/g, '') : '';
+            let safeTotal = order.grandTotal ? order.grandTotal.replace(/,/g, '') : '';
+            
+            csvContent += `${order.id},${safeName},${order.email},${order.phone},${safeCity},${safeTotal}\n`;
+        });
+        
+        // Trigger Download
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "shasha_orders.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+  </script>
+</body>
+</html>
